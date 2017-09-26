@@ -16,4 +16,4 @@ try:
 				print('You got it right!')
 				break
 except:
-	print('\nPlease enter a number nwhen you next run the script.')
+	print('\nPlease enter a number when you next run the script.')

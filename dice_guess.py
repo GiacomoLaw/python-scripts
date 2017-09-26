@@ -1,6 +1,7 @@
 # dice throw
 
 from random import randint
+
 result = (randint(1, 6))
 
 guess = input('Guess the number: ')

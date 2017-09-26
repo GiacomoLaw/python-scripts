@@ -9,7 +9,7 @@ if int(guess) == result:
 else:
 	while int(guess) != result:
 		print('Wrong!\n')
-		tryagain = input('Guess the number: ')
-		if int(tryagain) == result:
+		guess = input('Guess the number: ')
+		if int(guess) == result:
 			print('You got it right!')
 			break

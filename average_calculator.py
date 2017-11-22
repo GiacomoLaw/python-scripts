@@ -5,7 +5,7 @@ pupils = 0
 # put the number of students below
 students = 30
 
-while pupils <= students:
+while pupils < students:
     student_test1 = int(input("\n\nTest 1 result: "))
     test1.append(student_test1)
     student_test2 = int(input("\nTest 2 result: "))

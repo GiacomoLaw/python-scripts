@@ -33,6 +33,5 @@ def monster_easy(health, food, turn):
 			food += 1
 			turn += 1
 			print('You now have', food, "food, and", health, "health.")
-	return food
-	
+
 monster_easy(health, food, turn)

@@ -42,6 +42,7 @@ iss.goto(lon, lat)
 lat = 51.5074
 lon = 0.1278
 
+# adding a yellow dot to the specified location
 location = turtle.Turtle()
 location.penup()
 location.color('yellow')
@@ -49,15 +50,16 @@ location.goto(lon, lat)
 location.dot(5)
 location.hideturtle()
 
+# adding location to api url
 url = 'http://api.open-notify.org/iss-pass.json'
 url = url + '?lat=' + str(lat) + '&lon=' + str(lon)
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
 
+# time iss is over london
 over = result['response'][1]['risetime']
-print(over)
 
-style = ('Arial', 6, 'bold')
-location.write(time.ctime(over))
+style = ('Segoe UI', 12, 'bold')
+location.write(time.ctime(over), font=style)
 
 turtle.exitonclick()

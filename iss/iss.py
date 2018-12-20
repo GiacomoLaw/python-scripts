@@ -20,8 +20,8 @@ response = urllib.request.urlopen(url)
 result = json.loads(response.read())
 
 location = result['iss_position']
-lat = location['latitude']
-lon = location['longitude']
+lat = float(location['latitude'])
+lon = float(location['longitude'])
 print('Latitude: ', lat)
 print('Longitude: ', lon)
 
@@ -37,3 +37,4 @@ iss.setheading(90)
 
 iss.penup()
 iss.goto(lon, lat)
+turtle.exitonclick()

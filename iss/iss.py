@@ -1,6 +1,7 @@
 import json
 import urllib.request
 import turtle
+import time
 
 # people in space
 url = 'http://api.open-notify.org/astros.json'
@@ -22,9 +23,8 @@ result = json.loads(response.read())
 location = result['iss_position']
 lat = float(location['latitude'])
 lon = float(location['longitude'])
-print('Latitude: ', lat)
-print('Longitude: ', lon)
 
+# draw iss
 screen = turtle.Screen()
 screen.setup(720, 360)
 screen.setworldcoordinates(-180, -90, 180, 90)
@@ -37,4 +37,27 @@ iss.setheading(90)
 
 iss.penup()
 iss.goto(lon, lat)
+
+# coordinates of london
+lat = 51.5074
+lon = 0.1278
+
+location = turtle.Turtle()
+location.penup()
+location.color('yellow')
+location.goto(lon, lat)
+location.dot(5)
+location.hideturtle()
+
+url = 'http://api.open-notify.org/iss-pass.json'
+url = url + '?lat=' + str(lat) + '&lon=' + str(lon)
+response = urllib.request.urlopen(url)
+result = json.loads(response.read())
+
+over = result['response'][1]['risetime']
+print(over)
+
+style = ('Arial', 6, 'bold')
+location.write(time.ctime(over))
+
 turtle.exitonclick()
